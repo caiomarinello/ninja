@@ -3,5 +3,5 @@ package main
 import "fmt"
 
 func main(){
-	fmt.Println("testing docker cicd")
+	fmt.Println("testing docker cicd 2")
 }
