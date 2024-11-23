@@ -10,8 +10,8 @@ This API provides backend support for a marketplace focused on travelers and bac
 2. [Order Management Endpoints](#order-management-endpoints)
 3. [Review Management Endpoints](#review-management-endpoints)
 4. [Tip/Story Exchange Endpoints](#tipstory-exchange-endpoints)
-5. [User Management Endpoints](#user-management-endpoints)
-6. [Authentication & Authorization Endpoints](#authentication--authorization-endpoints)
+5. [Authentication & Authorization Endpoints](#authentication--authorization-endpoints)
+6. [User Management Endpoints](#user-management-endpoints)
 
 ---
 
