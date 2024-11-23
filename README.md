@@ -61,7 +61,7 @@ This API provides backend support for a marketplace focused on travelers and bac
 
 ---
 
-## Authentication & Authorization
+## Authentication & Authorization Endpoints
 
 | **Method** | **Endpoint**            | **Description**                                 | **Access** | **Status**         |
 | ---------- | ----------------------- | ----------------------------------------------- | ---------- | ------------------ |
@@ -72,7 +72,7 @@ This API provides backend support for a marketplace focused on travelers and bac
 
 ---
 
-## User Management
+## User Management Endpoints
 
 | **Method** | **Endpoint**     | **Description**                            | **Access** | **Status**         |
 | ---------- | ---------------- | ------------------------------------------ | ---------- | ------------------ |
