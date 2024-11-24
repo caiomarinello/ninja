@@ -1,7 +1,16 @@
 package main
 
-import "fmt"
+import (
+	"ninja/caio/api/handlers"
 
-func main(){
-	fmt.Println("testing docker cicd 3")
+	"github.com/gin-gonic/gin"
+)
+
+func main() {
+  r := gin.Default()
+
+  r.GET("/product", handlers.HandleProduct())
+  r.GET("/product/:productId", handlers.HandleProduct2())
+
+  r.Run(":8080")
 }
