@@ -19,8 +19,8 @@ This API provides backend support for a marketplace focused on travelers and bac
 
 | **Method** | **Endpoint**     | **Description**                                | **Access** | **Status**         |
 | ---------- | ---------------- | ---------------------------------------------- | ---------- | ------------------ |
-| GET        | `/products`      | Retrieve a list of all products.               | User       | 🔴 Not Implemented |
-| GET        | `/products/{id}` | Retrieve detailed information about a product. | User       | 🔴 Not Implemented |
+| GET        | `/products`      | Retrieve a list of all products.               | User       | 🟢 Implemented     |
+| GET        | `/products/{id}` | Retrieve detailed information about a product. | User       | 🟢 Implemented     |
 | POST       | `/products`      | Add a new product.                             | Admin      | 🔴 Not Implemented |
 | PUT        | `/products/{id}` | Update an existing product.                    | Admin      | 🔴 Not Implemented |
 | DELETE     | `/products/{id}` | Delete a product.                              | Admin      | 🔴 Not Implemented |
