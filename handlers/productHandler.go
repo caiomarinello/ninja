@@ -13,6 +13,7 @@ import (
 
 func HandleGetAllProducts(fetcher rep.Fetcher[comp.Product]) gin.HandlerFunc {
 	return func(c *gin.Context) {
+		
 
 		products, err := fetcher.FetchAll()
 		if err != nil {
@@ -31,7 +32,7 @@ func HandleGetProduct(fetcher rep.Fetcher[comp.Product]) gin.HandlerFunc {
 		productId, err := strconv.Atoi(productIdStr)
 		if err != nil {
 			c.AbortWithError(http.StatusBadRequest, errors.New(err.Error())).SetMeta(map[string]interface{}{
-				"error": "param id is not a valid number",
+				"error": "param id is not a valid",
 			})
 			return
 		}

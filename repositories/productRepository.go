@@ -19,7 +19,7 @@ func NewProductRepository(db *sql.DB) *ProductRepository {
 // Implements the Fetcher interface.
 func (p *ProductRepository) FetchById(productId int) (comp.Product, error) {
 	var product comp.Product
-	query := "SELECT id, product_name, product_description, price, category, stock FROM products WHERE id = ?"
+	query := "SELECT id, product_name, product_description, price, category, stock FROM products WHERE product_id = ?"
 	err := p.db.QueryRow(query, productId).Scan(&product.ProductId, &product.Name, &product.Description, &product.Price, &product.Category, &product.Stock)
 	if err != nil {
 		return product, err
