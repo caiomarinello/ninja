@@ -1,16 +1,32 @@
 package main
 
 import (
-	"ninja/caio/api/handlers"
+	"log"
+	"ninja/caio/api/db"
+	hdl "ninja/caio/api/handlers"
+	rep "ninja/caio/api/repositories"
 
 	"github.com/gin-gonic/gin"
+	"github.com/joho/godotenv"
 )
 
 func main() {
+  // Load .env variables
+	err := godotenv.Load()
+	if err != nil {
+		log.Fatal("Error loading .env file")
+	}
   r := gin.Default()
 
-  r.GET("/product", handlers.HandleProduct())
-  r.GET("/product/:productId", handlers.HandleProduct2())
+  dbConn := db.OpenSqlConnection()
+  defer dbConn.Close()
+
+
+  r.GET("/products", hdl.HandleGetAllProducts(rep.NewProductRepository(dbConn)))
+  r.GET("/product/:productId", hdl.HandleGetProduct(rep.NewProductRepository(dbConn)))
+  r.POST("/product", hdl.HandleRegisterProduct())
+	r.PUT("/product/:productId", hdl.HandleUpdateProduct())
+	r.DELETE("/product/:productId", hdl.HandleDeleteProduct())
 
   r.Run(":8080")
 }
