@@ -7,6 +7,7 @@ import (
 
 	comp "ninja/caio/api/components"
 	rep "ninja/caio/api/repositories"
+	"ninja/caio/api/utils"
 
 	"github.com/gin-gonic/gin"
 )
@@ -47,8 +48,32 @@ func HandleGetProduct(fetcher rep.Fetcher[comp.Product]) gin.HandlerFunc {
 	}
 }
 
-func HandleRegisterProduct() gin.HandlerFunc {
+func HandleRegisterProduct(registrar rep.Registrar[comp.Product]) gin.HandlerFunc {
 	return func(c *gin.Context) {
+		var newProduct comp.Product
+		if err := c.BindJSON(&newProduct); err != nil {
+			c.AbortWithError(http.StatusBadRequest, errors.New(err.Error())).SetMeta(map[string]interface{}{
+				"error": "invalid request body",
+			})
+			return
+		}
+
+		ok, err := utils.ValidateStructFields(c, newProduct)
+		if !ok {
+			c.AbortWithError(http.StatusBadRequest, errors.New(err.Error())).SetMeta(map[string]interface{}{
+				"error": "failed to validate struct fields",
+			})
+			return
+		}
+
+		err = registrar.Register(newProduct)
+		if err != nil {
+			c.AbortWithError(http.StatusInternalServerError, errors.New(err.Error())).SetMeta(map[string]interface{}{
+				"error": "error registering product",
+			})
+			return
+		}
+
 		c.JSON(http.StatusCreated, gin.H{"message": "Product registration successful"})
 	}
 }

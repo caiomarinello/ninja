@@ -52,6 +52,19 @@ func (p *ProductRepository) FetchAll() ([]comp.Product, error) {
 	return productsSlice, nil
 }
 
+// Implements the Registrar interface:
+// it saves a new 'product' in the database.
+func (p *ProductRepository) Register(newProduct comp.Product) error {
+	query := "INSERT INTO products (product_name, product_description, price, category, stock) VALUES (?, ?, ?, ?, ?)"
+	_, err := p.db.Exec(query, newProduct.Name, newProduct.Description, newProduct.Price, newProduct.Category, newProduct.Stock)
+	if err != nil {
+		return err
+	}
+	return nil
+
+
+}
+
 // Implements the Updater interface.
 func (p *ProductRepository) Update(updatedProduct comp.Product) error {
 	query := "UPDATE products SET product_name = ?, product_description = ?, price = ?, category = ?, stock = ? WHERE id = ?"
