@@ -173,10 +173,24 @@ func HandleUpdateProduct(updater rep.Updater[comp.Product], fetcher rep.Fetcher[
 	}
 }
 
-func HandleDeleteProduct() gin.HandlerFunc {
+func HandleDeleteProduct(deleter rep.Deleter[comp.Product]) gin.HandlerFunc {
 	return func(c *gin.Context) {
-		c.JSON(http.StatusOK, gin.H{
-			"message": "delete product!!",
-		  })
+		productIdStr := c.Param("productId")
+		productId, err := strconv.Atoi(productIdStr)
+		if err != nil {
+			c.AbortWithError(http.StatusBadRequest, errors.New(err.Error())).SetMeta(map[string]interface{}{
+				"error": "param id is not a valid number",
+			})
+			return
+		}
+
+		if err := deleter.Delete(productId); err != nil {
+			c.AbortWithError(http.StatusInternalServerError, errors.New(err.Error())).SetMeta(map[string]interface{}{
+				"error": "failed to delete product",
+			})
+			return
+		}
+
+		c.JSON(http.StatusOK, gin.H{"message": "Product deleted successfully"})
 	}
 }

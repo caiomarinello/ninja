@@ -74,3 +74,13 @@ func (p *ProductRepository) Update(updatedProduct comp.Product) error {
 	}
 	return nil
 }
+
+// Implements the Deleter interface.
+func (p *ProductRepository) Delete(productId int) error {
+	query := "DELETE FROM products WHERE id=?"
+	_, err := p.db.Exec(query, productId)
+	if err != nil {
+		return err
+	}
+	return nil
+}

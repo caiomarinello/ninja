@@ -26,7 +26,7 @@ func main() {
 	r.GET("/product/:productId", hdl.HandleGetProduct(rep.NewProductRepository(dbConn)))
 	r.POST("/product", hdl.HandleRegisterProduct(rep.NewProductRepository(dbConn)))
 	r.PUT("/product/:productId", hdl.HandleUpdateProduct(rep.NewProductRepository(dbConn), rep.NewProductRepository(dbConn)))
-	r.DELETE("/product/:productId", hdl.HandleDeleteProduct())
+	r.DELETE("/product/:productId", hdl.HandleDeleteProduct(rep.NewProductRepository(dbConn)))
 
   r.Run(":8080")
 }
