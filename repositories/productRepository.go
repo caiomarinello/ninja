@@ -19,7 +19,7 @@ func NewProductRepository(db *sql.DB) *ProductRepository {
 // Implements the Fetcher interface.
 func (p *ProductRepository) FetchById(productId int) (comp.Product, error) {
 	var product comp.Product
-	query := "SELECT id, product_name, product_description, price, category, stock FROM products WHERE product_id = ?"
+	query := "SELECT id, product_name, product_description, price, category, stock FROM products WHERE id = ?"
 	err := p.db.QueryRow(query, productId).Scan(&product.ProductId, &product.Name, &product.Description, &product.Price, &product.Category, &product.Stock)
 	if err != nil {
 		return product, err
@@ -50,4 +50,14 @@ func (p *ProductRepository) FetchAll() ([]comp.Product, error) {
 	}
 
 	return productsSlice, nil
+}
+
+// Implements the Updater interface.
+func (p *ProductRepository) Update(updatedProduct comp.Product) error {
+	query := "UPDATE products SET product_name = ?, product_description = ?, price = ?, category = ?, stock = ? WHERE id = ?"
+	_, err := p.db.Exec(query, updatedProduct.Name, updatedProduct.Description, updatedProduct.Price, updatedProduct.Category, updatedProduct.Stock, updatedProduct.ProductId)
+	if err != nil {
+		return err
+	}
+	return nil
 }

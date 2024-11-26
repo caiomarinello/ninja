@@ -17,24 +17,24 @@ This API provides backend support for a marketplace focused on travelers and bac
 
 ## Product Management Endpoints
 
-| **Method** | **Endpoint**     | **Description**                                | **Access** | **Status**         |
-| ---------- | ---------------- | ---------------------------------------------- | ---------- | ------------------ |
-| GET        | `/products`      | Retrieve a list of all products.               | User       | 🟢 Implemented     |
-| GET        | `/products/{id}` | Retrieve detailed information about a product. | User       | 🟢 Implemented     |
-| POST       | `/products`      | Add a new product.                             | Admin      | 🔴 Not Implemented |
-| PUT        | `/products/{id}` | Update an existing product.                    | Admin      | 🔴 Not Implemented |
-| DELETE     | `/products/{id}` | Delete a product.                              | Admin      | 🔴 Not Implemented |
+| **Method** | **Endpoint**    | **Description**                                | **Access** | **Status**         |
+| ---------- | --------------- | ---------------------------------------------- | ---------- | ------------------ |
+| GET        | `/products`     | Retrieve a list of all products.               | User       | 🟢 Implemented     |
+| GET        | `/product/{id}` | Retrieve detailed information about a product. | User       | 🟢 Implemented     |
+| POST       | `/product`      | Add a new product.                             | Admin      | 🔴 Not Implemented |
+| PUT        | `/product/{id}` | Update an existing product.                    | Admin      | 🟢 Implemented     |
+| DELETE     | `/product/{id}` | Delete a product.                              | Admin      | 🔴 Not Implemented |
 
 ---
 
 ## Order Management Endpoints
 
-| **Method** | **Endpoint**          | **Description**                             | **Access** | **Status**         |
-| ---------- | --------------------- | ------------------------------------------- | ---------- | ------------------ |
-| POST       | `/checkout`           | Finalize the cart and create an order.      | User       | 🔴 Not Implemented |
-| GET        | `/orders/{id}`        | Retrieve a specific order’s details.        | User       | 🔴 Not Implemented |
-| GET        | `/orders`             | List all orders for the authenticated user. | User       | 🔴 Not Implemented |
-| PUT        | `/orders/{id}/status` | Update the status of an order.              | Admin      | 🔴 Not Implemented |
+| **Method** | **Endpoint**         | **Description**                             | **Access** | **Status**         |
+| ---------- | -------------------- | ------------------------------------------- | ---------- | ------------------ |
+| POST       | `/checkout`          | Finalize the cart and create an order.      | User       | 🔴 Not Implemented |
+| GET        | `/order/{id}`        | Retrieve a specific order’s details.        | User       | 🔴 Not Implemented |
+| GET        | `/orders`            | List all orders for the authenticated user. | User       | 🔴 Not Implemented |
+| PUT        | `/order/{id}/status` | Update the status of an order.              | Admin      | 🔴 Not Implemented |
 
 ---
 
@@ -42,10 +42,10 @@ This API provides backend support for a marketplace focused on travelers and bac
 
 | **Method** | **Endpoint**            | **Description**                          | **Access** | **Status**         |
 | ---------- | ----------------------- | ---------------------------------------- | ---------- | ------------------ |
-| POST       | `/reviews`              | Create a new review for a product.       | User       | 🔴 Not Implemented |
+| POST       | `/review`               | Create a new review for a product.       | User       | 🔴 Not Implemented |
 | GET        | `/reviews/{product_id}` | Retrieve reviews for a specific product. | User       | 🔴 Not Implemented |
-| PUT        | `/reviews/{id}`         | Update an existing review.               | User       | 🔴 Not Implemented |
-| DELETE     | `/reviews/{id}`         | Delete a review.                         | User/Admin | 🔴 Not Implemented |
+| PUT        | `/review/{id}`          | Update an existing review.               | User       | 🔴 Not Implemented |
+| DELETE     | `/review/{id}`          | Delete a review.                         | User/Admin | 🔴 Not Implemented |
 
 ---
 
@@ -54,10 +54,10 @@ This API provides backend support for a marketplace focused on travelers and bac
 | **Method** | **Endpoint** | **Description**                                  | **Access** | **Status**         |
 | ---------- | ------------ | ------------------------------------------------ | ---------- | ------------------ |
 | GET        | `/tips`      | Retrieve a list of all travel tips/stories.      | User       | 🔴 Not Implemented |
-| GET        | `/tips/{id}` | Retrieve detailed information about a tip/story. | User       | 🔴 Not Implemented |
-| POST       | `/tips`      | Post a new tip or story.                         | User       | 🔴 Not Implemented |
-| PUT        | `/tips/{id}` | Update an existing tip/story.                    | User       | 🔴 Not Implemented |
-| DELETE     | `/tips/{id}` | Delete a tip/story.                              | User/Admin | 🔴 Not Implemented |
+| GET        | `/tip/{id}`  | Retrieve detailed information about a tip/story. | User       | 🔴 Not Implemented |
+| POST       | `/tip`       | Post a new tip or story.                         | User       | 🔴 Not Implemented |
+| PUT        | `/tip/{id}`  | Update an existing tip/story.                    | User       | 🔴 Not Implemented |
+| DELETE     | `/tip/{id}`  | Delete a tip/story.                              | User/Admin | 🔴 Not Implemented |
 
 ---
 
@@ -74,7 +74,7 @@ This API provides backend support for a marketplace focused on travelers and bac
 
 ## User Management Endpoints
 
-| **Method** | **Endpoint**     | **Description**                            | **Access** | **Status**         |
-| ---------- | ---------------- | ------------------------------------------ | ---------- | ------------------ |
-| GET        | `/users/profile` | Retrieve the authenticated user’s profile. | User       | 🔴 Not Implemented |
-| PUT        | `/users/profile` | Update the user’s profile.                 | User       | 🔴 Not Implemented |
+| **Method** | **Endpoint**    | **Description**                            | **Access** | **Status**         |
+| ---------- | --------------- | ------------------------------------------ | ---------- | ------------------ |
+| GET        | `/user/profile` | Retrieve the authenticated user’s profile. | User       | 🔴 Not Implemented |
+| PUT        | `/user/profile` | Update the user’s profile.                 | User       | 🔴 Not Implemented |

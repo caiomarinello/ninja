@@ -22,10 +22,10 @@ func main() {
   defer dbConn.Close()
 
 
-  r.GET("/products", hdl.HandleGetAllProducts(rep.NewProductRepository(dbConn)))
-  r.GET("/product/:productId", hdl.HandleGetProduct(rep.NewProductRepository(dbConn)))
-  r.POST("/product", hdl.HandleRegisterProduct())
-	r.PUT("/product/:productId", hdl.HandleUpdateProduct())
+	r.GET("/products", hdl.HandleGetAllProducts(rep.NewProductRepository(dbConn)))
+	r.GET("/product/:productId", hdl.HandleGetProduct(rep.NewProductRepository(dbConn)))
+	r.POST("/product", hdl.HandleRegisterProduct())
+	r.PUT("/product/:productId", hdl.HandleUpdateProduct(rep.NewProductRepository(dbConn), rep.NewProductRepository(dbConn)))
 	r.DELETE("/product/:productId", hdl.HandleDeleteProduct())
 
   r.Run(":8080")
