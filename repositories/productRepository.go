@@ -61,8 +61,6 @@ func (p *ProductRepository) Register(newProduct comp.Product) error {
 		return err
 	}
 	return nil
-
-
 }
 
 // Implements the Updater interface.

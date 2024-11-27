@@ -2,6 +2,8 @@
 
 This API provides backend support for a marketplace focused on travelers and backpackers, including user management, product catalog, orders, and more.
 
+This service operates behind an API Gateway to manage routing and authentication [(API Gateway repository link)](https://github.com/caiomarinello/ninjaGateway).
+
 ---
 
 ## Table of Contents
@@ -61,20 +63,17 @@ This API provides backend support for a marketplace focused on travelers and bac
 
 ---
 
-## Authentication & Authorization Endpoints
-
-| **Method** | **Endpoint**            | **Description**                                 | **Access** | **Status**         |
-| ---------- | ----------------------- | ----------------------------------------------- | ---------- | ------------------ |
-| POST       | `/auth/register`        | Register a new user.                            | User       | 🔴 Not Implemented |
-| POST       | `/auth/login`           | Authenticate a user and return a token.         | User       | 🔴 Not Implemented |
-| POST       | `/auth/logout`          | Log out the authenticated user.                 | User       | 🔴 Not Implemented |
-| POST       | `/auth/forgot-password` | Send a password reset link to the user’s email. | Public     | 🔴 Not Implemented |
-
----
-
 ## User Management Endpoints
 
 | **Method** | **Endpoint**    | **Description**                            | **Access** | **Status**         |
 | ---------- | --------------- | ------------------------------------------ | ---------- | ------------------ |
 | GET        | `/user/profile` | Retrieve the authenticated user’s profile. | User       | 🔴 Not Implemented |
 | PUT        | `/user/profile` | Update the user’s profile.                 | User       | 🔴 Not Implemented |
+
+---
+
+## Authentication & Authorization Endpoints
+
+This functionality is handled by the API Gateway. Refer to the [API Gateway Documentation](https://github.com/caiomarinello/ninjaGateway) for details.
+
+---
