@@ -1,3 +1,4 @@
+DROP TABLE IF EXISTS orders;
 DROP TABLE IF EXISTS products;
 
 CREATE TABLE products (
@@ -20,3 +21,15 @@ INSERT INTO products (product_name, product_description, price, category, stock)
 ('Travel Pillow', 'Soft and ergonomic travel pillow for long trips.', 14.99, 'Accessories', 120),
 ('Solar Charger', 'Portable solar charger for charging devices on the go.', 59.99, 'Electronics', 35),
 ('Compression Bags', 'Set of 5 compression bags to save space in your backpack.', 29.99, 'Gear', 80);
+
+CREATE TABLE orders (
+    id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    user_id INT NOT NULL,
+    product_id INT NOT NULL,
+    quantity INT NOT NULL,
+    total_price DECIMAL(10, 2) NOT NULL, 
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP, 
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    FOREIGN KEY (user_id) REFERENCES users(user_id),
+    FOREIGN KEY (product_id) REFERENCES products(id)
+);

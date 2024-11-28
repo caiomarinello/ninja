@@ -31,12 +31,11 @@ This service operates behind an API Gateway to manage routing and authentication
 
 ## Order Management Endpoints
 
-| **Method** | **Endpoint**         | **Description**                             | **Access** | **Status**         |
-| ---------- | -------------------- | ------------------------------------------- | ---------- | ------------------ |
-| POST       | `/checkout`          | Finalize the cart and create an order.      | User       | 🔴 Not Implemented |
-| GET        | `/order/{id}`        | Retrieve a specific order’s details.        | User       | 🔴 Not Implemented |
-| GET        | `/orders`            | List all orders for the authenticated user. | User       | 🔴 Not Implemented |
-| PUT        | `/order/{id}/status` | Update the status of an order.              | Admin      | 🔴 Not Implemented |
+| **Method** | **Endpoint**  | **Description**                                                                      | **Access** | **Status**         |
+| ---------- | ------------- | ------------------------------------------------------------------------------------ | ---------- | ------------------ |
+| POST       | `/checkout`   | Finalize the cart, saves the order in the database and send user confirmation email. | User       | 🟢 Implemented     |
+| GET        | `/order/{id}` | Retrieve a specific order’s details.                                                 | User       | 🔴 Not Implemented |
+| GET        | `/orders`     | List all orders for the authenticated user.                                          | User       | 🔴 Not Implemented |
 
 ---
 

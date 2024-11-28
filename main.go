@@ -3,6 +3,7 @@ package main
 import (
 	"log"
 	"ninja/caio/api/db"
+	"ninja/caio/api/email"
 	hdl "ninja/caio/api/handlers"
 	rep "ninja/caio/api/repositories"
 
@@ -27,6 +28,8 @@ func main() {
 	r.POST("/product", hdl.HandleRegisterProduct(rep.NewProductRepository(dbConn)))
 	r.PUT("/product/:productId", hdl.HandleUpdateProduct(rep.NewProductRepository(dbConn), rep.NewProductRepository(dbConn)))
 	r.DELETE("/product/:productId", hdl.HandleDeleteProduct(rep.NewProductRepository(dbConn)))
+
+	r.POST("/checkout", hdl.HandleCheckout(rep.NewCartItemRepository(dbConn), email.NewUserEmailRepository(dbConn)))
 
   r.Run(":8080")
 }
