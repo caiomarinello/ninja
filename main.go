@@ -29,7 +29,9 @@ func main() {
 	r.PUT("/product/:productId", hdl.HandleUpdateProduct(rep.NewProductRepository(dbConn), rep.NewProductRepository(dbConn)))
 	r.DELETE("/product/:productId", hdl.HandleDeleteProduct(rep.NewProductRepository(dbConn)))
 
-	r.POST("/checkout", hdl.HandleCheckout(rep.NewCartItemRepository(dbConn), email.NewUserEmailRepository(dbConn)))
+	r.POST("/checkout", hdl.HandleCheckout(rep.NewOrderRepository(dbConn), email.NewUserEmailRepository(dbConn)))
+	r.GET("/orders", hdl.HandleGetAllOrders(rep.NewOrderRepository(dbConn)))
+	r.GET("/order/:orderId", hdl.HandleGetOrder(rep.NewOrderRepository(dbConn)))
 
   r.Run(":8080")
 }

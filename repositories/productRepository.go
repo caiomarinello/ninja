@@ -30,7 +30,7 @@ func (p *ProductRepository) FetchById(productId int) (comp.Product, error) {
 // Implements the Fetcher interface.
 // Fetches all products from a specific seller.
 func (p *ProductRepository) FetchAll() ([]comp.Product, error) {
-	var productsSlice []comp.Product
+	var productSlice []comp.Product
 	query := "SELECT id, product_name, product_description, price, category, stock FROM products"
 	rows, err := p.db.Query(query)
 	if err != nil {
@@ -46,10 +46,10 @@ func (p *ProductRepository) FetchAll() ([]comp.Product, error) {
 			log.Println("error scanning product values: ", err)
 			return nil, err
 		}
-		productsSlice = append(productsSlice, product)
+		productSlice = append(productSlice, product)
 	}
 
-	return productsSlice, nil
+	return productSlice, nil
 }
 
 // Implements the Registrar interface:

@@ -11,10 +11,10 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-func HandleCheckout(orderRegistrar rep.Registrar[components.CartItem], userFetcher email.UserFetcher) gin.HandlerFunc {
+func HandleCheckout(orderRegistrar rep.Registrar[components.Order], userFetcher email.UserFetcher) gin.HandlerFunc {
 	return func(c *gin.Context) {
 		
-		var purchaseOrder []components.CartItem
+		var purchaseOrder []components.Order
 		if err := c.BindJSON(&purchaseOrder); err != nil {
 			c.AbortWithError(http.StatusBadRequest, errors.New(err.Error())).SetMeta(map[string]interface{}{
 				"error": "invalid request body",
