@@ -2,7 +2,7 @@
 
 This API provides backend support for a marketplace focused on travelers and backpackers, including user management, product catalog, orders, and more.
 
-This service operates behind an API Gateway to manage routing and authentication [(API Gateway repository link)](https://github.com/caiomarinello/ninjaGateway).
+This service operates behind an API Gateway to manage routing and authentication. For more information on project setup, head to [API Gateway repository](https://github.com/caiomarinello/ninjaGateway).
 
 ---
 
